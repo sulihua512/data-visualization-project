@@ -86,8 +86,9 @@
     var myChart = echarts.init($('.pie')[0])
     myChart.setOption(option)
 })();
+
 // 用户统计
-$(function () {
+(function () {
     // 中间省略的数据  准备三项
     var item = {
         name: '',
@@ -196,4 +197,36 @@ $(function () {
     };
     var myChart = echarts.init($('.bar')[0])
     myChart.setOption(option)
-})
+})();
+
+(function () {
+    // 1. 准备数据
+    var data = {
+        day365: { orders: '20,301,987', amount: '99834' },
+        day90: { orders: '301,987', amount: '9834' },
+        day30: { orders: '1,987', amount: '3834' },
+        day1: { orders: '987', amount: '834' }
+    }
+    // 获取显示 订单数量 容器
+    var $h4Orders = $('.order h4:eq(0)')
+    // 获取显示 金额数量 容器
+    var $h4Amount = $('.order h4:eq(1)')
+    $('.order').on('click', '.filter a', function () {
+        // 2. 点击切换激活样式
+        $(this).addClass('active').siblings().removeClass('active')
+        // 3. 点击切换数据
+        var currdata = data[this.dataset.key]
+        $h4Orders.html(currdata.orders)
+        $h4Amount.html(currdata.amount)
+    })
+    // 4. 开启定时器切换数据
+    var index = 0;
+    var $allTab = $('.order .filter a')
+    setInterval(() => {
+        index++;
+        if (index >= 4) {
+            index = 0;
+        }
+        $allTab.eq(index).click()
+    }, 3000);
+})();
