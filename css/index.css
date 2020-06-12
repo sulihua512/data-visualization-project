@@ -76,6 +76,84 @@ a{
     color: #4c9bfd;
 }
 
+/* 监控区域 */
+.monitor{
+    height: 20rem;
+}
+.monitor .inner{
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+.monitor .tabs{
+    padding: 0 1.5rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+}
+.monitor .tabs a{
+    color:#1950c4;
+    font-size: 0.75rem;
+    padding: 0 1.125rem;
+}
+.monitor .tabs a:first-child{
+    padding-left: 0;
+    border-right: 0.083rem solid #00f2f1;
+}
+.monitor .tabs a.active{
+    color: #fff;
+}
+.monitor .content{
+    flex: 1;
+    position: relative;
+    display: none;
+}
+.monitor .head{
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.05;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1.5rem;
+    color: #68d8fe;
+    font-size: 0.583rem;
+}
+
+.monitor .row{
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.05;
+    font-size: 0.5rem;
+    color: #61a8ff;
+    padding: 0.5rem 1.5rem;
+}
+.monitor .row .icon-dot{
+    position: absolute;
+    left: 0.64rem;
+    opacity: 0;
+}
+.monitor .row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #68d8fe;
+}
+.monitor .row:hover .icon-dot{
+    opacity: 1;
+}
+.monitor .col:first-child{
+    width: 3.2rem;
+}
+.monitor .col:nth-child(2){
+    width: 8.4rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.monitor .col:nth-child(3){
+    width: 3.2rem;
+}
+
+
+
+
+
 
 
 
