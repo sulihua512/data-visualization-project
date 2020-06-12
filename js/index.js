@@ -233,7 +233,6 @@
 })();
 
 // 销售统计
-
 (function () {
     var data = {
         year: [
@@ -348,3 +347,46 @@
         allTab.eq(index).click()
     }, 1000)
 })();
+
+// 销售进度
+(function () {
+    var option = {
+        series: [
+            {
+                type: 'pie',
+                radius: ['50%', '70%'],
+                radius: ['130%', '150%'],  // 放大图形
+                center: ['48%', '80%'],    // 往下移动  套住75%文字
+                label: {
+                    show: false,
+                },
+                data: [
+                    { value: 100 }, // 不需要名称
+                    { value: 100 }, // 不需要名称
+                    { value: 200, itemStyle: { color: 'transparent' } } // 透明隐藏第三块区域
+                ],
+                hoverOffset: 0,  // 鼠标经过不变大
+                data: [
+                    {
+                        value: 100,
+                        itemStyle: { // 颜色渐变#00c9e0->#005fc1
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [
+                                    { offset: 0, color: '#00c9e0' }, { offset: 1, color: '#005fc1' }
+                                ]
+                            }
+                        }
+                    },
+                    { value: 100, itemStyle: { color: '#12274d' } },
+                ]
+            }
+        ]
+    }
+    var myChart = echarts.init($('.gauge')[0])
+    myChart.setOption(option)
+})()

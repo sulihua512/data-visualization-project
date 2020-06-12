@@ -351,3 +351,88 @@ a{
     width: 100%;
     height: 100%;
 }
+/* 渠道区块 */
+.wrap {
+    display: flex;
+  }
+  .channel,
+  .quarter {
+    flex: 1;
+    height: 9.667rem;
+  }
+  .channel {
+    margin-right: 0.833rem;
+  }
+  .channel .data {
+    overflow: hidden;
+  }
+  .channel .item {
+    margin-top: 0.85rem;
+  }
+  .channel .item:first-child {
+    float: left;
+  }
+  .channel .item:last-child {
+    float: right;
+  }
+  .channel h4 {
+    color: #fff;
+    font-size: 1.333rem;
+    margin-bottom: 0.2rem;
+  }
+  .channel small {
+    font-size: 50%;
+  }
+  .channel span {
+    display: block;
+    color: #4c9bfd;
+    font-size: 0.583rem;
+  }
+  /* 季度区块 */
+  .quarter .inner {
+    display: flex;
+    flex-direction: column;
+    margin: 0 -0.25rem;
+  }
+  .quarter .chart {
+    flex: 1;
+    padding-top: 0.75rem;
+  }
+  .quarter .box {
+    position: relative;
+  }
+  .quarter .label {
+    transform: translate(-50%, -30%);
+    color: #fff;
+    font-size: 1.25rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+  .quarter .label small {
+    font-size: 50%;
+  }
+  .quarter .gauge {
+    height: 3.5rem;
+  }
+  .quarter .data {
+    display: flex;
+    justify-content: space-between;
+  }
+  .quarter .item {
+    width: 50%;
+  }
+  .quarter h4 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .quarter span {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #4c9bfd;
+    font-size: 0.583rem;
+  }
