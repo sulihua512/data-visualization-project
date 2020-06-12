@@ -1,0 +1,58 @@
+/* 基础布局 */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 0.5rem;
+    line-height: 1.15;
+    background: url(../images/bg.jpg) no-repeat 0 0 / cover;
+}
+h4,h3,ul{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.viewport{
+    max-width: 1920px;
+    min-width: 1024px;
+    margin: 0 auto;
+    min-height: 780px;
+    padding: 3.667rem 0.833rem 0;
+    background: url(../images/logo.png) no-repeat 0 0 / contain;
+    display: flex;
+}
+.column{
+    flex: 3;
+    position: relative;
+}
+.column:nth-child(2){
+    flex: 4;
+    margin: 1.333rem 0.833rem 0;
+}
+/* 面板样式 */
+.panel{
+    box-sizing: border-box;
+    border: 2rem solid transparent;
+    border-width: 2.125rem 1.583rem 0.833rem 5.5rem;
+    border-image: url(../images/border.png) 51 38 21 132;
+    margin-bottom: 0.833rem;
+    position: relative;
+}
+.panel .inner{
+    padding: 1rem 1.5px;
+    position: absolute;
+    top: -2.125rem;
+    right: -1.583rem;
+    bottom: -0.833rem;
+    left: -5.5rem;
+}
+.panel h3{
+    font-size: 0.833rem;
+    color: #fff;
+}
