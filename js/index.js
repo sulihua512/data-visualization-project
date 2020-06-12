@@ -199,6 +199,7 @@
     myChart.setOption(option)
 })();
 
+// 订单区域
 (function () {
     // 1. 准备数据
     var data = {
@@ -229,4 +230,121 @@
         }
         $allTab.eq(index).click()
     }, 3000);
+})();
+
+// 销售统计
+
+(function () {
+    var data = {
+        year: [
+            [24, 40, 101, 134, 90, 230, 210, 230, 120, 230, 210, 120],
+            [40, 64, 191, 324, 290, 330, 310, 213, 180, 200, 180, 79]
+        ],
+        quarter: [
+            [23, 75, 12, 97, 21, 67, 98, 21, 43, 64, 76, 38],
+            [43, 31, 65, 23, 78, 21, 82, 64, 43, 60, 19, 34]
+        ],
+        month: [
+            [34, 87, 32, 76, 98, 12, 32, 87, 39, 36, 29, 36],
+            [56, 43, 98, 21, 56, 87, 43, 12, 43, 54, 12, 98]
+        ],
+        week: [
+            [43, 73, 62, 54, 91, 54, 84, 43, 86, 43, 54, 53],
+            [32, 54, 34, 87, 32, 45, 62, 68, 93, 54, 54, 24]
+        ]
+    }
+    var option = {
+        // 设置网格样式
+        grid: {
+            show: true,// 显示边框
+            top: '20%',
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            borderColor: '#012f4a',// 边框颜色
+            containLabel: true // 包含刻度文字在内
+        },
+        // 工具提示
+        tooltip: {
+            trigger: 'axis'
+        },
+        // 图例组件
+        legend: {
+            textStyle: {
+                color: '#4c9bfd' // 图例文字颜色
+            },
+            right: '10%' // 距离右边10%
+        },
+        xAxis: {
+            type: 'category',
+            data: data.year[1],
+            axisTick: {
+                show: false // 去除刻度线
+            },
+            axisLabel: {
+                color: '#4c9bfd' // 文本颜色
+            },
+            axisLine: {
+                show: false
+            },
+            boundaryGap: false  // 去除轴内间距
+        },
+        yAxis: {
+            type: 'value',
+            axisTick: {
+                show: false // 去除刻度线
+            },
+            axisLabel: {
+                color: '#4c9bfd' // 文本颜色
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#012f4a' // 分割线颜色
+                }
+            }
+        },
+        series: [{
+            name: '预期销售额',
+            data: [24, 40, 101, 134, 90, 230, 210, 230, 120, 230, 210, 120],
+            type: 'line',
+            smooth: true,
+            itemStyle: {
+                color: '#00f2f1'  // 线颜色
+            }
+        }, {
+            name: '实际销售额',
+            data: [40, 64, 191, 324, 290, 330, 310, 213, 180, 200, 180, 79],
+            type: 'line',
+            smooth: true,
+            itemStyle: {
+                color: '#ed3f35'  // 线颜色
+            }
+        }]
+    };
+    var myChart = echarts.init($('.line')[0])
+    myChart.setOption(option);
+
+    $('.sales').on('click', '.caption a', function () {
+        // 样式
+        $(this).addClass('active').siblings().removeClass('active')
+        var currData = data[this.dataset.type]
+        // 修改图表1的数据
+        option.series[0].data = currData[0]
+        // 修改图表2的数据                  
+        option.series[1].data = currData[1]
+        // 重新设置数据  让图标重新渲染                  
+        myChart.setOption(option)
+    })
+
+    // tab索引
+    var index = 0;
+    // 所有tab
+    var allTab = $('.sales .caption a')
+    setInterval(function () {
+        index++
+        // 大于等于4索引切换到0索引
+        if (index >= 4) index = 0
+        // 选中对应tab触发点击
+        allTab.eq(index).click()
+    }, 1000)
 })();

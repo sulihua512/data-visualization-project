@@ -307,5 +307,47 @@ a{
     font-size: 0.667rem;
 }
 
-
-
+/* 销售区域 */
+.sales {
+    height: 10.333rem;
+}
+.sales .caption {
+    display: flex;
+    line-height: 1;
+}
+.sales h3 {
+    height: 0.75rem;
+    padding-right: 0.75rem;
+    border-right: 0.083rem solid #00f2f1;
+}
+.sales a {
+    padding: 0.167rem;
+    font-size: 0.667rem;
+    margin: -0.125rem 0 0 0.875rem;
+    border-radius: 0.125rem;
+    color: #0bace6;
+}
+.sales a.active {
+    background-color: #4c9bfd;
+    color: #fff;
+}
+.sales .inner {
+    display: flex;
+    flex-direction: column;
+}
+.sales .chart {
+    flex: 1;
+    padding-top: 0.6rem;
+    position: relative;
+}
+.sales .label {
+    position: absolute;
+    left: 1.75rem;
+    top: 0.75rem;
+    color: #4996f5;
+    font-size: 0.583rem;
+}
+.sales .line {
+    width: 100%;
+    height: 100%;
+}
