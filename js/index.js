@@ -17,3 +17,16 @@
         setFont();
     }
 })();
+
+// 监控区域-效果
+(function () {
+    $('.monitor').on('click', '.tabs a', function () {
+        $(this).addClass('active').siblings().removeClass('active')
+        $('.monitor .content').eq(this.dataset.index).show().siblings('.content').hide()
+    })
+    // 动画
+    $('.marquee').each(function () {
+        var $cloneList = $(this).children().clone();
+        $(this).append($cloneList)
+    })
+})();

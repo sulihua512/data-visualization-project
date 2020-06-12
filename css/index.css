@@ -149,6 +149,26 @@ a{
 .monitor .col:nth-child(3){
     width: 3.2rem;
 }
+/* 动画 */
+.monitor .marquee-view{
+    position: absolute;
+    width: 100%;
+    top: 1.6rem;
+    bottom: 0;
+    overflow: hidden;
+}
+.monitor .marquee{
+    animation: scroll-top 15s linear infinite;
+}
+.monitor .marquee:hover{
+    animation-play-state: paused;
+}
+@keyframes scroll-top{
+    0%{}
+    100%{
+        transform: translateY(-50%);
+    }
+}
 
 
 
