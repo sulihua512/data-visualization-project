@@ -56,3 +56,29 @@ a{
     font-size: 0.833rem;
     color: #fff;
 }
+
+/* 概览区域 */
+.overview{
+    height: 4.583rem;
+}
+.overview .inner{
+    display: flex;
+    justify-content: space-around;
+}
+.overview h4{
+    font-size: 1.167rem;
+    padding-left: 0.2rem;
+    color: #fff;
+    margin-bottom: 0.333rem
+}
+.overview span{
+    font-size: 0.667rem;
+    color: #4c9bfd;
+}
+
+
+
+
+
+
+
