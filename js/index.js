@@ -389,4 +389,44 @@
     }
     var myChart = echarts.init($('.gauge')[0])
     myChart.setOption(option)
-})()
+})();
+
+(function () {
+    var data = [
+        { name: '可爱多', num: '9,086' },
+        { name: '娃哈哈', num: '8,341' },
+        { name: '喜之郎', num: '7,407' },
+        { name: '八喜', num: '6,080' },
+        { name: '小洋人', num: '6,724' },
+        { name: '好多鱼', num: '2,170' },
+    ]
+    // 绑定鼠标经过事件，激活样式，根据随机数据渲染内容。
+    $('.province').on('mouseenter', '.sup li', function () {
+        $(this).addClass('active').siblings().removeClass('active');
+        // 打乱数据
+        var randomData = data.sort(function (a, b) {
+            return 0.5 - Math.random()
+        });
+        // 拼接字符串
+        var html = '';
+        randomData.forEach(item => {
+            html += `<li><span>${item.name}</span><span>${item.num} <s class="icon-up"></s></span></li>`
+        })
+        // 渲染
+        $('.sub').html(html)
+    })
+    // 所有的LI
+    var $lis = $('.province .sup li')
+    // 第一个默认激活
+    $lis.eq(0).mouseenter();
+    // 开启定时器 切换
+    var index = 0
+    setInterval(function () {
+        index++
+        // 大于等于5索引切换到0索引
+        if (index >= 5) index = 0
+        // 选中对应tab触发点击
+        $lis.eq(index).mouseenter()
+    }, 1000)
+})();
+
